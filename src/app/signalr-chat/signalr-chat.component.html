@@ -1,0 +1,31 @@
+<div class="alert" *ngIf="loading">Connection to server not established yet</div>
+<div class="chat">
+	<div class="chat__heading">First Sender</div>
+	<div class="chat__list">
+			<div class="chat__body" *ngFor="let chatMessage of chatMessages" [ngClass]="{ 'blue-bubble': isSender(chatMessage.sender, sender.SECOND) }">
+				<div class="chat__body--message" >{{ chatMessage.message }}</div>
+			</div>
+	</div>
+	<div class="chat__window">
+		<mat-form-field appearance="fill">
+    		<mat-label>Send Message</mat-label>
+    		<input matInput placeholder="Enter chat message here" #firstSender>
+  		</mat-form-field>
+		<button mat-stroked-button (click)="$$send(sender.FIRST)">Send Message</button>
+	</div>
+</div>
+<div class="chat">
+	<div class="chat__heading">Second Sender</div>
+	<div class="chat__list">
+			<div class="chat__body" *ngFor="let chatMessage of chatMessages" [ngClass]="{ 'blue-bubble': isSender(chatMessage.sender, sender.FIRST) }">
+				<div class="chat__body--message" >{{ chatMessage.message }}</div>
+			</div>
+	</div>
+	<div class="chat__window">
+		<mat-form-field appearance="fill">
+    		<mat-label>Send Message</mat-label>
+    		<input matInput placeholder="Enter chat message here" #secondSender>
+  		</mat-form-field>
+		<button mat-stroked-button (click)="$$send(sender.SECOND)">Send Message</button>
+	</div>
+</div>

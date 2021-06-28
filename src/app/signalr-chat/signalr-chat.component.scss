@@ -1,0 +1,85 @@
+@import "mixins";
+@import "variables";
+
+:host {
+	@include flex-row(flex-start, flex-start);
+	width: 100%;
+	height: calc(100% - 5rem);
+	background-color: white;
+	padding: 0 1rem;
+
+	@media screen and (max-width: $lg){
+		@include flex-column(flex-start, flex-start);
+	}
+
+	.alert {
+		color: #842029;
+    	background-color: #f8d7da;
+		border: 1px solid #f5c2c7;
+		position: relative;
+		padding: .75rem 1.25rem;
+		margin: 1rem;
+		border-radius: .25rem;
+		font-weight: 600;
+		width: 80vw;
+	}
+
+	.chat {
+		margin: 0.5rem;
+		border: solid 1px grey;
+		width: 20rem;
+		min-width: 20rem;
+
+		&__heading {
+			@include flex-row(center, center);
+			letter-spacing: 0.3rem;
+			text-transform: uppercase;
+			font-weight: 500;
+			height: 2rem;
+			background-color: lightgrey;
+		}
+
+		&__list {
+			height: 30rem;
+			overflow-y: auto;
+			overflow-x: hidden;
+			width: 100%;
+			border: solid 2px darkgrey;
+			padding: 1rem 0rem;
+		}
+
+		&__body {
+			@include flex-row(flex-start, center);
+			height: 2rem;
+			padding: 0 1rem;
+			margin: 0.5rem 0;
+			width: 100%;
+
+			> div {
+				border: 1px lightpink solid;
+			}
+
+			&.blue-bubble {
+				@include flex-row(flex-end, center);
+				> div {
+					border: 1px lightblue solid;
+				}	
+			}
+
+			&--message {
+				@include flex-row(flex-start, center);
+				height: 100%;
+				border-radius: 1.5rem;
+				padding: 0 0.5rem;
+			}
+		}
+
+		&__window {
+			padding: 0.5rem;
+		}
+	}
+
+	.mat-form-field {
+		width: 100%;
+	}
+}

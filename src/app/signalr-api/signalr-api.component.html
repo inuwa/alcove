@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="container__filter">
+		<mat-form-field appearance="fill">
+  			<mat-select [value]="friendsAndFamily">
+    			<mat-option (click)="$$filter(friendsAndFamily)" [value]="friendsAndFamily"> 
+					Friends And Family View
+				</mat-option>
+    			<mat-option (click)="$$filter(carer)" [value]="carer"> 
+					IsCarer View 
+				</mat-option>
+    			<mat-option (click)="$$filter(allUsers)" [value]="allUsers"> 
+					Display All users
+				</mat-option>
+  			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="container__users">
+		<div *ngFor="let user of users" class="container__user">
+			<span class="container__user--image" [style.background-image]="'url(' + user.imageUrl + ')'">
+			</span>
+			<span class="container__user--title">{{ user.userFullName }} <i>{{ user.relation }}</i></span>
+			<div aria-label="SignalR button" class="elevated-button"> S
+        	</div>
+		</div>
+	</div>
+</div>
