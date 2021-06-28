@@ -2,10 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+import { DynamicVariables } from './dynamic-environment';
+
+class environmentVariables extends DynamicVariables {
+	production: boolean = false;
+	host: string = 'http://localhost:4200/';
 };
 
+export const environment = new environmentVariables();
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
